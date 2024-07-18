@@ -1,4 +1,5 @@
 import 'package:checkout_payment_app/Features/checkout/utils/custom_order_item.dart';
+import 'package:checkout_payment_app/Features/payment_details/view/payment_details_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -13,7 +14,7 @@ class MyCartView extends StatelessWidget {
         centerTitle: true,
         title: const Text(
           'My Cart ',
-          style: TextStyle(fontSize: 24),
+          style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
         ),
       ),
       body: Padding(
@@ -39,7 +40,10 @@ class MyCartView extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const PaymentDetailsView()));
+              },
               child: Container(
                 decoration: BoxDecoration(
                   color: const Color(0xff34A853),
