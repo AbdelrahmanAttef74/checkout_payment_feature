@@ -1,3 +1,4 @@
+import 'package:checkout_payment_app/Features/checkout/utils/custom_buttom.dart';
 import 'package:checkout_payment_app/Features/checkout/utils/custom_order_item.dart';
 import 'package:checkout_payment_app/Features/payment_details/view/payment_details_view.dart';
 import 'package:flutter/material.dart';
@@ -44,23 +45,7 @@ class MyCartView extends StatelessWidget {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => const PaymentDetailsView()));
               },
-              child: Container(
-                decoration: BoxDecoration(
-                  color: const Color(0xff34A853),
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                width: MediaQuery.of(context).size.width,
-                child: const Padding(
-                  padding: EdgeInsets.symmetric(vertical: 23, horizontal: 75),
-                  child: Center(
-                    child: Text(
-                      'Complete Payment',
-                      style:
-                          TextStyle(fontSize: 22, fontWeight: FontWeight.w500),
-                    ),
-                  ),
-                ),
-              ),
+              child: const CustomButton(text: 'Complete Payment'),
             ),
             const SizedBox(height: 16),
           ],
