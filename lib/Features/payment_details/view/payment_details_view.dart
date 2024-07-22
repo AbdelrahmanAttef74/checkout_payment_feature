@@ -1,6 +1,7 @@
 import 'package:checkout_payment_app/Features/checkout/utils/custom_buttom.dart';
 import 'package:checkout_payment_app/Features/checkout/utils/custom_credit_card.dart';
 import 'package:checkout_payment_app/Features/payment_details/utils/payment_methode_item.dart';
+import 'package:checkout_payment_app/Features/thank_you/view/thank_you_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -84,6 +85,10 @@ class _PaymentDetailsViewState extends State<PaymentDetailsView> {
                     if (formKey.currentState!.validate()) {
                       formKey.currentState!.save();
                     } else {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const ThankYouView()));
                       autovalidateMode = AutovalidateMode.always;
                     }
                   },
