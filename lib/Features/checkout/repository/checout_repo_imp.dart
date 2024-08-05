@@ -10,7 +10,7 @@ class ChecoutRepoImpl extends CheckoutRepo {
       {required PaymentIntentInputModel paymentIntentInputModel}) async {
     try {
       await stripeService.makePayment(
-          paymentIntentIntputModel: paymentIntentInputModel);
+          paymentIntentInputModel: paymentIntentInputModel);
       return right(null);
     } catch (e) {
       return left(ServerFailure(errorMessage: e.toString()));
