@@ -1,6 +1,6 @@
 import 'package:checkout_payment_app/Features/checkout/utils/custom_buttom.dart';
 import 'package:checkout_payment_app/Features/checkout/utils/custom_credit_card.dart';
-import 'package:checkout_payment_app/Features/payment_details/utils/payment_methode_item.dart';
+import 'package:checkout_payment_app/Features/payment_details/utils/payment_methods_list_view.dart';
 import 'package:checkout_payment_app/Features/thank_you/view/thank_you_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -16,7 +16,6 @@ class _PaymentDetailsViewState extends State<PaymentDetailsView> {
   GlobalKey<FormState> formKey = GlobalKey();
 
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
-  int activeIndex = 0;
   List<String> paymentMethodsItemList = [
     'assets/images/iconCarrier.svg',
     'assets/images/paypal.svg',
@@ -46,25 +45,8 @@ class _PaymentDetailsViewState extends State<PaymentDetailsView> {
           SliverToBoxAdapter(
             child: SizedBox(
               height: 62,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: paymentMethodsItemList.length,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8),
-                    child: GestureDetector(
-                      onTap: () {
-                        activeIndex = index;
-                        setState(() {});
-                      },
-                      child: PaymentMethodeItem(
-                        isActive: activeIndex == index,
-                        image: paymentMethodsItemList[index],
-                      ),
-                    ),
-                  );
-                },
-              ),
+              child: PaymentMethodsItemsListView(
+                  paymentMethodsItemList: paymentMethodsItemList),
             ),
           ),
           const SliverToBoxAdapter(
